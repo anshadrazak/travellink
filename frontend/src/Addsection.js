@@ -29,7 +29,7 @@ const Addsection = () => {
 
   const Sign_Up = async () => {
     try {
-      await fetch('http://localhost:5000/add', {
+      await fetch('https://travellink.onrender.com/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

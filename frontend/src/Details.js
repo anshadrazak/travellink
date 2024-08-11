@@ -11,7 +11,7 @@ const Details = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/details/${id}`, {
+        const response = await fetch(`https://travellink.onrender.com/details/${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
