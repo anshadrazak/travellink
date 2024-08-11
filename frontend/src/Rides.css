@@ -1,0 +1,112 @@
+.body {
+  background-color: #1C1D21;
+  min-height: 90vh;
+  height: fit-content;
+}
+
+.projectsdiv {
+    
+
+    margin: auto;
+    max-width: 85%;
+    width: 85%;
+    display: grid;
+    grid-template-columns: 20.25% 20.25% 20.25% 20.25%;
+    height: fit-content;
+    gap: 10vh;
+  }
+  
+  .project1 {
+
+    margin-top: 5%;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    max-width: 100%;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1%;
+  }
+  
+  .p1dets {
+ 
+    width: 100%;
+    
+  }
+  
+  .p1heading {
+    color: #221A23;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 500;
+    
+  }
+  
+  .p1tag {
+    color: #221A23;
+
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 200;
+  }
+  
+  .p1btn {
+    
+    background-color: #221A23;
+    border: none;
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 300;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+  }
+  
+  .p1btn:hover {
+    cursor:grab;
+    background-color: #c9011c;
+    
+  }
+  
+  .p1img {
+    
+    width: 100%;
+  }
+  
+  .bbimg {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .project1:hover{
+    padding: 20px;
+  }
+
+  @media (max-width: 700px){
+
+    .projectsdiv{
+      gap: 10vh;
+    }
+
+    .project1{
+      
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .p1img{
+      width: 80%;
+    }
+    .p1heading {
+      font-size: 1.5rem;
+      text-align: center;
+      width: 100%;
+    }
+    .p1dets {
+      font-size: 0.5rem;
+      text-align: center;
+    }
+  }
