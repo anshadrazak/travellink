@@ -53,7 +53,7 @@ const Details = () => {
       <p>Gender: {details.gender}</p>
       <p>Phone Number: {details.phonenumber}</p>
       <p>Time: {details.time}</p>
-      <a href={`https://wa.me/${details.phonenumber}`} target="_blank"><btn>Contact</btn></a>
+      <a href={`https://wa.me/${details.phonenumber}`} target="_blank"><btn className="cntctbtn">Contact</btn></a>
       {/* Add more fields as necessary */}
     </div>
     </div>

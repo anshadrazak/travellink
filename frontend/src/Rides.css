@@ -66,8 +66,9 @@
   }
   
   .p1btn:hover {
-    cursor:grab;
-    background-color: #c9011c;
+    background-color: white;
+    border: 1px black solid;
+    color: black;
     
   }
   
