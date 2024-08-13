@@ -1,5 +1,6 @@
 .body {
-  background-color: #1C1D21;
+  background-image: url('./files/bgimg.jpg');
+  background-size: 100%;
   min-height: 90vh;
   height: fit-content;
 }
