@@ -7,6 +7,9 @@ import Homepage from './Homepage';
 import Addpage from './Addpage';
 import { Toaster, toast } from 'sonner';
 import Details from './Details';
+import Login from './Login';
+import Signup from './Signup';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path='/' element={<Homepage/>}/>
           <Route path='/add' element={<Addpage/>}/>
           <Route path='/details/:id' element={<Details/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
       </Router>
     </div>

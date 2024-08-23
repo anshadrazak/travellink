@@ -1,7 +1,6 @@
 .details-container{
     background-color: white;
-    min-width: 25%;  
-    height: 45%;
+    min-width: 25%;   
     width: fit-content; 
     border-radius: 15px;
 }
@@ -15,17 +14,4 @@
     text-align: center;
     background-color: #1c1d21;
     height: 100vh;
-}
-
-.cntctbtn {
-    background-color: black;
-    padding: 10px;
-    color: white;
-    border-radius: 10px;
-}
-
-.cntctbtn:hover {
-    background-color: white;
-    border: 1px black solid;
-    color: black;
 }

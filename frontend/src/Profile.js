@@ -1,23 +1,33 @@
 
 import React, { useEffect, useState } from 'react';
 import './Rides.css'
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Rides = () => {
+const Profile = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+    const namee = localStorage.getItem('username')
+
+    const lg = async() => {
+      localStorage.removeItem('username');
+      navigate('/')
+      
+    }
 
 
   
     useEffect(() => {
       const fetchProjects = async () => {
         try {
-          const response = await fetch('http://localhost:5000/projects/', {
-            method: 'GET',
+          const response = await fetch('http://localhost:5000/userprojects/', {
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
+            body: JSON.stringify({username: namee})
           });
   
           if (!response.ok) {
@@ -50,6 +60,7 @@ const Rides = () => {
   
     return (
       <div className='body'>
+        
         <div className="projectsdiv">
         {projects.map((project) => (
   <div className="project1" key={project._id}>
@@ -64,8 +75,12 @@ const Rides = () => {
   </div>
 ))}
       </div>
+      <div className='btnct'>
+      <button onClick={lg} className='lg'>Logout</button>
       </div>
+      </div>
+
     );
   };
   
-export default Rides
+export default Profile

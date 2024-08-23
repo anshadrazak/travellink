@@ -109,8 +109,11 @@ app.listen(PORT, () => {
 const { MongoClient, ObjectId } = require('mongodb'); // Import ObjectId
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 const app = express();
 const port = process.env.PORT || 5000;
+const bcrypt = require('bcrypt');
+const SECRET_KEY = 'your_secret_key';
 
 const uri = "mongodb+srv://anshadrazakk:Asdrzkknt%40123@cluster0.qyxtmlr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -149,12 +152,33 @@ app.get('/projects', async (req, res) => {
     }
 });
 
+app.post('/userprojects', async (req, res) => {
+    try {
+        await connectToDb();
+
+        const {username} = req.body;
+        console.log('Fetching projects from database');
+
+        const projects = await client.db("places").collection("dets").find({username: username}).toArray();
+        console.log('Projects fetched:', projects);
+
+        if (projects.length > 0) {
+            res.json(projects);
+        } else {
+            res.status(404).send('No projects found');
+        }
+    } catch (e) {
+        console.error('Error fetching projects:', e.message);
+        res.status(500).send(e.message);
+    }
+});
+
 app.post('/add', async (req, res) => {
     try {
-        const { from, to, date, gender, transport, phonenumber, time} = req.body;
+        const { username ,from, to, date, gender, transport, phonenumber, time} = req.body;
 
         await connectToDb();
-        const result = await client.db('places').collection('dets').insertOne({from: from, to: to, date: date, gender: gender, transport: transport, phonenumber, time: time})
+        const result = await client.db('places').collection('dets').insertOne({username: username,from: from, to: to, date: date, gender: gender, transport: transport, phonenumber, time: time})
         res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
         console.error(error);
@@ -184,6 +208,47 @@ app.get('/details/:id', async (req, res) => {
     } catch (e) {
         console.error('Error fetching details:', e.message);
         res.status(500).send(e.message);
+    }
+});
+
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        console.log(username,password)
+
+        await connectToDb();
+
+        const user = await client.db("places").collection("users").findOne({ name: username });
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid username or password' });
+        }
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (passwordMatch) {
+            const token = jwt.sign({ id: user._id, username: user.name }, SECRET_KEY, { expiresIn: '1h' });
+            res.json({ token });
+            console.log(token, 'for ', user.name)
+        } else {
+            return res.status(401).json({ message: 'Invalid username or password' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+app.post('/signup', async (req, res) => {
+    try {
+        const { username, password, age, gender } = req.body;
+
+        await connectToDb();
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const count = await client.db('places').collection('users').countDocuments();
+        const result = await client.db('places').collection('users').insertOne({_id: count ,name: username, password: hashedPassword, age: age, gender: gender})
+        res.status(201).json({ message: 'User created successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
     }
 });
 
