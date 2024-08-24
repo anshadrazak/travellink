@@ -26,7 +26,7 @@ const Signup = () => {
 
   const Sign_Up = async () => {
     try {
-      await fetch('http://localhost:5000/signup', {
+      await fetch('https://travellink.onrender.com/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

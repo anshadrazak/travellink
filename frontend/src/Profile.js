@@ -22,7 +22,7 @@ const Profile = () => {
     useEffect(() => {
       const fetchProjects = async () => {
         try {
-          const response = await fetch('http://localhost:5000/userprojects/', {
+          const response = await fetch('https://travellink.onrender.com/userprojects/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ const Rides = () => {
     useEffect(() => {
       const fetchProjects = async () => {
         try {
-          const response = await fetch('http://localhost:5000/projects/', {
+          const response = await fetch('https://travellink.onrender.com/projects/', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
