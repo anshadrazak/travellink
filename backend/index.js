@@ -112,7 +112,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const app = express();
 const port = process.env.PORT || 5000;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const SECRET_KEY = 'your_secret_key';
 
 const uri = "mongodb+srv://anshadrazakk:Asdrzkknt%40123@cluster0.qyxtmlr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -243,8 +243,7 @@ app.post('/signup', async (req, res) => {
 
         await connectToDb();
         const hashedPassword = await bcrypt.hash(password, 10);
-        const count = await client.db('places').collection('users').countDocuments();
-        const result = await client.db('places').collection('users').insertOne({_id: count ,name: username, password: hashedPassword, age: age, gender: gender})
+        const result = await client.db('places').collection('users').insertOne({name: username, password: hashedPassword, age: age, gender: gender})
         res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
         console.error(error);
