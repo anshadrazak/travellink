@@ -8,6 +8,7 @@ const Profile = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [curitem, setCuritem] = useState();
     const navigate = useNavigate();
     const namee = localStorage.getItem('username')
 
@@ -17,12 +18,30 @@ const Profile = () => {
       
     }
 
+    const deleting = async() => {
+      setCuritem(projects._id);
+
+      try{
+        const response = await fetch('http://localhost:5000/delete', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({_id: curitem})
+        })
+      } catch {
+
+      }
+
+
+    }
+
 
   
     useEffect(() => {
       const fetchProjects = async () => {
         try {
-          const response = await fetch('https://travellink.onrender.com/userprojects/', {
+          const response = await fetch('http://localhost:5000/userprojects/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -39,7 +58,9 @@ const Profile = () => {
         } catch (error) {
           setError(error.message);
           console.error("Error fetching projects:", error);
-          alert("Error fetching projects. Check the console for more details.");
+          return(
+            <div>No Rides Found</div>
+          )
         } finally {
           setLoading(false);
         }
@@ -70,7 +91,9 @@ const Profile = () => {
     <div className="p1dets">
       <h1 className="p1heading">{project.from} to {project.to}</h1>
       <h2 className="p1tag">{project.date}</h2>
-      <Link to={`/details/${project._id}`}><button className="p1btn">Details</button></Link>  {/* Use Link here */}
+      <Link to={`/details/${project._id}`}><button className="p1btn">Details</button></Link>  {/* Use Link here */}<br></br>
+      {}
+      <button onClick={deleting}>Delete</button>
     </div>
   </div>
 ))}

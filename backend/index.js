@@ -251,6 +251,19 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+app.post('/delete', async (req, res) => {
+    try {
+        const { _id } = req.body;
+
+        await connectToDb();
+        const result = await client.db('places').collection('dets').deleteOne({_id: _id})
+        res.status(201).json({ message: 'User created successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 
 
 // Start server
