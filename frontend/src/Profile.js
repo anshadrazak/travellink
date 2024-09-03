@@ -30,7 +30,7 @@ const Profile = () => {
           body: JSON.stringify({_id: curitem})
         })
       } catch {
-
+        
       }
 
 
@@ -50,6 +50,7 @@ const Profile = () => {
           });
   
           if (!response.ok) {
+            navigate('/login')
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
   
