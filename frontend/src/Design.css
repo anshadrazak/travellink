@@ -1,0 +1,73 @@
+.mmainbg{
+    margin-top: -16px;
+    min-height: 100vh;
+    background-image: url('./files/dbg.jpg');
+    
+    background-size: cover;
+}
+
+
+
+.txtcnts{
+    margin-left: 15vw;
+    padding-top: 13%;
+    animation: slidein2 2s both;
+}
+
+.tl{
+    font-size: 20px;
+    color: white;
+    font-family: 'Flairdisplay', serif;
+}
+
+.hd1{
+    color: #dab36a;
+    font-size: 50px;
+    font-family: 'Flairdisplay', serif;
+    font-weight: 100;
+}
+
+.btnbtn{
+    background-color: #dab36a;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.fr {
+    text-align: right;
+    margin-left: 150px;
+    max-height: 100vh;
+    position: absolute;
+    opacity: 0;
+    /* The element is initially invisible */
+  }
+  
+  .slidein-animation {
+    animation: slidein 2s forwards;
+  }
+  
+  @keyframes slidein {
+    0% {
+      opacity: 0;
+      margin-left: 300px;
+    }
+    100% {
+      opacity: 1;
+      margin-left: 150px;
+    }
+  }
+  @keyframes slidein2 {
+    0%{
+        opacity: 0%;
+        margin-left: 50px ;
+    }
+    100%{
+        opacity: 100%;
+        margin-left: 200px;
+    }
+}
+  
+  /* Other styles remain the same */
+  

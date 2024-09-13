@@ -175,10 +175,10 @@ app.post('/userprojects', async (req, res) => {
 
 app.post('/add', async (req, res) => {
     try {
-        const { username ,from, to, date, gender, transport, phonenumber, time} = req.body;
+        const { username ,name, address,phonenumber, price, link} = req.body;
 
         await connectToDb();
-        const result = await client.db('places').collection('dets').insertOne({username: username,from: from, to: to, date: date, gender: gender, transport: transport, phonenumber, time: time})
+        const result = await client.db('places').collection('dets').insertOne({username: username,name: name, address: address,phonenumber, price: price, link:link})
         res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
         console.error(error);
@@ -189,6 +189,7 @@ app.post('/add', async (req, res) => {
 app.get('/details/:id', async (req, res) => {
     try {
         const { id } = req.params;  // Get the ID from the route parameters
+        console.log(id)
 
         if (!id) {
             return res.status(400).send('ID is required');
@@ -254,9 +255,11 @@ app.post('/signup', async (req, res) => {
 app.post('/delete', async (req, res) => {
     try {
         const { _id } = req.body;
+        console.log(_id)
 
         await connectToDb();
-        const result = await client.db('places').collection('dets').deleteOne({_id: _id})
+        const result = await client.db('places').collection('dets').findOne({_id: new ObjectId(_id)})
+        console.log(result)
         res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
         console.error(error);

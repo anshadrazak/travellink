@@ -11,7 +11,7 @@ const Details = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const response = await fetch(`https://travellink.onrender.com/details/${id}`, {
+        const response = await fetch(`http://localhost:5000/details/${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -46,13 +46,10 @@ const Details = () => {
   return (
     <div className='body_3'>
         <div className="details-container">
-      <h1>From: {details.from}</h1>
-      <h1>To: {details.to}</h1>
-
-      <p>Date: {details.date}</p>
-      <p>Gender: {details.gender}</p>
+      <img className='dimg' src={details.link}></img>
+      <h1>{details.name}</h1>
+      <h1>{details.address}</h1>
       <p>Phone Number: {details.phonenumber}</p>
-      <p>Time: {details.time}</p>
       <a href={`https://wa.me/${details.phonenumber}`} target="_blank"><btn className='btnct'>Contact</btn></a>
       {/* Add more fields as necessary */}
     </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './Rides.css'
 import { Link, json } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import img1 from './files/img1.jpeg'
 
 const Profile = () => {
     const [projects, setProjects] = useState([]);
@@ -82,24 +83,20 @@ const Profile = () => {
   
     return (
       <div className='body'>
-        
         <div className="projectsdiv">
         {projects.map((project) => (
-  <div className="project1" key={project._id}>
-    <div className="p1img">
-      <img className="bbimg" src={project.transport} alt={project.destination} />
-    </div>
-    <div className="p1dets">
-      <h1 className="p1heading">{project.from} to {project.to}</h1>
-      <h2 className="p1tag">{project.date}</h2>
-      <Link to={`/details/${project._id}`}><button className="p1btn">Details</button></Link>  {/* Use Link here */}<br></br>
-      {}
-      <button onClick={deleting}>Delete</button>
-    </div>
-  </div>
+                <div className='card'>
+                <img className='cardimgs' src={project.link}>
+
+                </img>
+                <h3 className='phd'>{project.name}</h3>
+                <p className='location'>{project.address}</p>
+                <hr></hr>
+                <p className='price'>Price: ${project.price}</p>
+            </div>
 ))}
       </div>
-      <div className='btnct'>
+      <div className='btndiv'>
       <button onClick={lg} className='lg'>Logout</button>
       </div>
       </div>

@@ -26,7 +26,7 @@ const Signup = () => {
 
   const Sign_Up = async () => {
     try {
-      await fetch('https://travellink.onrender.com/signup', {
+      await fetch('http://localhost:5000/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -41,6 +41,7 @@ const Signup = () => {
   };
 
   return (
+    <div className='sibdy'>
     <div className="maincont">
       <div className='subcont'>
         <form className="nnp" onSubmit={handleFormSubmit}>
@@ -61,6 +62,7 @@ const Signup = () => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 }

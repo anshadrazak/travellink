@@ -10,6 +10,8 @@ import Details from './Details';
 import Login from './Login';
 import Signup from './Signup';
 import Profile from './Profile';
+import Search from './Search';
+import Properties from './Properties';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/profile' element={<Profile/>}/>
+          <Route path='/search' element={<Search/>}/>
+          <Route path='/properties' element={<Properties/>}/>
         </Routes>
       </Router>
     </div>

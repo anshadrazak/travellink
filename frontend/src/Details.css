@@ -1,9 +1,14 @@
 .details-container{
+    padding: 40px;
     background-color: white;
     min-width: 25%;   
     width: fit-content; 
     border-radius: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 30px;
+}
+
+.dimg{
+    width: 350px;
 }
 
 .body_3

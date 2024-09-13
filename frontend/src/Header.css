@@ -1,5 +1,7 @@
 .tlheading {
-    color: #1c1d21;
+    color: white;
+    font-size: 25px;
+    font-family: 'Flairdisplay', serif;
     text-decoration:none;
 }
 
@@ -9,15 +11,35 @@ a{
 
 .headerdiv{
     display: grid;
-    background-color: #FFFFFF;
-    grid-template-columns: 1fr 1fr 4fr .5fr .5fr .5fr 1.5fr;
+    background-color: rgb(11, 44, 61);
+    grid-template-columns: 1fr 1fr 6fr 1fr 1fr 1fr 1fr 1fr;
 
 }
 
+.addpy{
+    background-color: #dab36a;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.addpy:hover{
+    background-color: #f4b237;
+    cursor:pointer;
+}
+
 .samplebox {
+    
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+h2{
+    font-size: 15px;
+    color: white;
+    font-family: 'Flairdisplay', serif;
+    font-weight: 100;
 }
 
 .searchicon {

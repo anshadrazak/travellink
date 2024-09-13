@@ -8,6 +8,10 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const navigate = useNavigate();
 
+  const tosearch = async () => {
+    navigate('/search');
+  }
+
   const fetchProfile = async () => {
     const status = localStorage.getItem('token')
     if (status){
@@ -22,17 +26,25 @@ const Header = () => {
     <div>
       <div className='headerdiv'>
         <div className='samplebox'></div>
-        <a href='/'><h1 className='tlheading'>TravelLink</h1></a>
-        <div className='samplebox2'>
-          <img className='searchicon' src={searchicon} alt="Search" />
-        </div>
         <div className='samplebox'>
-          <a onClick={fetchProfile}><img className='addicon' src={addicon} alt="Add" /></a>
-        </div>
-        <div className='samplebox'>
-          <a href='/profile'><img className='addicon' src={usericon}></img></a>
+          <a href='/'><h1 className='tlheading'>PropLink</h1></a>
         </div>
         <div className='samplebox'></div>
+        <div className='samplebox'>
+          <a href='/'><h2>Home</h2></a>
+        </div>
+        
+        <div className='samplebox'>
+          <a href='/properties'><h2>Properties</h2></a>
+        </div>
+        <div className='samplebox'>
+          <a href='/profile'><h2>Profile</h2></a>
+        </div>
+        
+        
+        <div className='samplebox'>
+          <button onClick={fetchProfile} className='addpy'>Add Property</button>
+        </div>
         <div className='samplebox'></div>
       </div>
     </div>

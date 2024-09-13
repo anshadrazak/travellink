@@ -1,0 +1,26 @@
+.card2:hover{
+    animation: slideup3 .5 both;
+}
+
+.cnts2{
+    text-align: left;
+}
+
+.card2{
+    background-color: rgb(240, 240, 240);
+    border: 0.2px solid black;
+    overflow: hidden;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+}
+
+@keyframes slideup3 {
+    from{
+        margin-top: -15px;
+    }
+    to{
+        margin-top: 0px;
+    }
+}

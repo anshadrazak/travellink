@@ -1,14 +1,17 @@
-.body {
-  background-image: url('./files/bgimg.jpg');
+.body { /* Optional, for a solid background behind the image */
   background-size: 100%;
   min-height: 90vh;
   height: fit-content;
+  position: relative; /* Required for proper positioning */
 }
+
+
 
 .projectsdiv {
     
 
     margin: auto;
+    padding-top: 100px;
     max-width: 85%;
     width: 85%;
     display: grid;
@@ -20,7 +23,7 @@
   .project1 {
 
     margin-top: 5%;
-    background-color: #FFFFFF;
+    background-color: rgb(11, 44, 61);;
     border-radius: 20px;
     padding: 15px;
     text-align: center;
@@ -135,3 +138,9 @@
     font-size: 20px;
   }
   
+
+  .rbdy{
+    background-image: url(./files/img4.jpeg);
+    min-height: 100vh;
+    background-size: 50%;
+  }

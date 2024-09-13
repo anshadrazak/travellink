@@ -1,0 +1,44 @@
+.maincnt4{
+    padding-top: 100px;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.cnts4{
+    
+    width:65%;
+}
+
+.hd4{
+    color: rgb(11, 44, 61);
+    font-family: 'Flairdisplay', serif;
+}
+
+.row1{
+    padding-top: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.oneft{
+    margin-left: -20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.abtimg{
+    width: 90%;
+}
+
+.abhd{
+    font-size: 30px;
+    color: #0b2c3d;
+}
+
+.abct{
+
+}

@@ -1,0 +1,70 @@
+.main2{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.tl2{
+    color: #dab36a;
+}
+
+.hd2{
+    color: #0b2c3d;
+    font-family: 'Flairdisplay', serif;
+    margin-top: -10px;
+}
+
+.card{
+    background-color: rgb(240, 240, 240);
+    border: 0.2px solid black;
+    overflow: hidden;
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+}
+
+
+.cardimgs {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    object-position: 0px -100px;
+    padding-left: -50px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.cards{
+    padding-top: 50px;
+    justify-content: center;
+    gap: 20px;
+    
+    display: flex;
+}
+
+.card:hover{
+    animation: slideup 0.5s both;
+}
+
+.card:not(:hover){
+    animation: slideup2 0.5s both;
+}
+
+
+@keyframes slideup {
+    from{
+        margin-top: 0px;
+    }
+    to{
+        margin-top: -20px;
+    }
+}
+@keyframes slideup2 {
+    from{
+        margin-top: -20px;
+    }
+    to{
+        margin-top: 0px;
+    }
+}
